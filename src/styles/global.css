@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+li {
+  list-style: none;
+}
+
+button,
+input {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
