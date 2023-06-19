@@ -39,7 +39,7 @@ const Support: FC<SupportProps> = ({}) => {
       <div className="grid gap-5 grid-cols-4">
         {items.map((item) => (
           <div
-            className="flex flex-col items-center justify-center border border-[#dfe3eb] py-10"
+            className="flex flex-col items-center justify-center border border-[#dfe3eb] py-12"
             key={item.id}
           >
             <img className="w-20" src={item.image} alt="" />
