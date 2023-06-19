@@ -10,12 +10,12 @@ const AppFooter: FC<AppFooterProps> = ({}) => {
           <img src="/assets/images/logo5.png" className="w-[250px]" alt="" />
           <ul className="text-sm flex flex-col gap-[14px]">
             <li className="text-[#0352cc] font-medium">
-              MEDPRO - ĐẶT LỊCH KHÁM BỆNH
+              BOOKING CARE - ĐẶT LỊCH KHÁM BỆNH
             </li>
-            <li>Địa chỉ: 97 Trần Quang Diệu, Phường 14, Quận 3</li>
+            <li>Địa chỉ: 1 Đại Cồ Việt, Bách Khoa, Hai Bà Trưng, Hà Nội</li>
             <li>Website: https://pkh.vn</li>
             <li>Email: contact@pkh.vn</li>
-            <li>Điện thoại: (028) 710 78098</li>
+            <li>Điện thoại: 0981.367.828</li>
           </ul>
           <ul className="text-sm flex flex-col gap-[14px]">
             <li>Liên hệ</li>

@@ -11,21 +11,21 @@ const items = [
   },
   {
     id: 2,
-    title: "Hỗ trợ đặt khám",
-    phone: "1900-2115",
-    image: "/assets/images/support/support-1.svg",
+    title: "Fanpage Facebook",
+    phone: "Bấm vào đây",
+    image: "/assets/images/support/facebook.svg",
   },
   {
     id: 3,
-    title: "Hỗ trợ đặt khám",
-    phone: "1900-2115",
-    image: "/assets/images/support/support-1.svg",
+    title: "Hỗ trợ Zalo",
+    phone: "Bấm vào đây",
+    image: "/assets/images/support/qrmed.jpg",
   },
   {
     id: 4,
-    title: "Hỗ trợ đặt khám",
-    phone: "1900-2115",
-    image: "/assets/images/support/support-1.svg",
+    title: "Chat Facebook",
+    phone: "Bấm vào đây",
+    image: "/assets/images/support/download.png",
   },
 ];
 
