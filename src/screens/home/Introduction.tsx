@@ -40,16 +40,16 @@ const Introduction: FC<IntroductionProps> = ({}) => {
             </h2>
           </div>
           <p>
-            <b>Booking Care</b> là giải pháp đặt lịch khám bệnh, chăm sóc sức khỏe
-            trực tuyến cho cả gia đình. Người dùng chủ động trong việc khám chữa
-            bệnh, được lựa chọn dịch vụ, chuyên khoa, bác sĩ tại các bệnh viện
-            và phòng khám hàng đầu Việt Nam như bệnh viện Bạch Mai,
-            bệnh viện Việt Đức, bệnh viện XanhPon,...
+            <b>Booking Care</b> là giải pháp đặt lịch khám bệnh, chăm sóc sức
+            khỏe trực tuyến cho cả gia đình. Người dùng chủ động trong việc khám
+            chữa bệnh, được lựa chọn dịch vụ, chuyên khoa, bác sĩ tại các bệnh
+            viện và phòng khám hàng đầu Việt Nam như bệnh viện Bạch Mai, bệnh
+            viện Việt Đức, bệnh viện XanhPon,...
           </p>
         </div>
       </div>
 
-      <div className="w-full py-8 m-auto max-w-[1140px] grid grid-cols-3 gap-6">
+      <div className="-translate-y-[75px] -mb-[50px] w-full py-8 m-auto max-w-[1140px] grid grid-cols-3 gap-6">
         {features.map((feature, index) => {
           return (
             <div key={index} className="relative">

@@ -2,7 +2,7 @@ import { FC } from "react";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { BsFillArrowLeftCircleFill } from "react-icons/bs";
 import { Autoplay } from "swiper";
-
+import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 interface FeatureHospitalsProps {}
 
 const hospitals = [
@@ -31,7 +31,6 @@ const hospitals = [
     name: "Bệnh viện Xanhpon",
     href: "#",
   },
-
 ];
 
 const FeatureHospitals: FC<FeatureHospitalsProps> = ({}) => {
@@ -41,34 +40,45 @@ const FeatureHospitals: FC<FeatureHospitalsProps> = ({}) => {
         hệ thống bệnh viện triển khai
       </h3>
 
-      <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        autoplay={{
-          delay: 3500,
-          disableOnInteraction: false,
-          pauseOnMouseEnter: true,
-        }}
-        className="mySwiper"
-        modules={[Autoplay]}
-        speed={1200}
-      >
-        {hospitals.map((hospital, index) => (
-          <SwiperSlide key={index} className="flex flex-col gap-4 items-center">
-            <a className="block w-full" href={hospital.href}>
-              <img
-                src={hospital.image}
-                className="w-full object-cover rounded-lg"
-                alt=""
-              />
+      <div className="w-full relative">
+        <button className="absolute top-1/2 -translate-y-[25px] -left-10 text-2xl">
+          <FaChevronCircleLeft />
+        </button>
+        <button className="absolute top-1/2 -translate-y-[25px] -right-10 text-2xl">
+          <FaChevronCircleRight />
+        </button>
+        <Swiper
+          slidesPerView={3}
+          spaceBetween={30}
+          autoplay={{
+            delay: 3500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          className="mySwiper"
+          modules={[Autoplay]}
+          speed={1200}
+        >
+          {hospitals.map((hospital, index) => (
+            <SwiperSlide
+              key={index}
+              className="flex flex-col gap-4 items-center"
+            >
+              <a className="block w-full" href={hospital.href}>
+                <img
+                  src={hospital.image}
+                  className="w-full object-cover rounded-lg"
+                  alt=""
+                />
 
-              <h3 className="text-center uppercase mt-4 text-lg">
-                {hospital.name}
-              </h3>
-            </a>
-          </SwiperSlide>
-        ))}
-      </Swiper>
+                <h3 className="text-center uppercase mt-4 text-lg">
+                  {hospital.name}
+                </h3>
+              </a>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
 };

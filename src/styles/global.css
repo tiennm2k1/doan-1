@@ -15,11 +15,11 @@ a {
   text-decoration: none;
 }
 
-@font-face {
+/* @font-face {
   font-family: Averta;
   src: url('/public/assets/fonts/Averta-Bold.otf');
-}
- 
-*{
-  font-family: Averta;
+} */
+
+* {
+  font-family: 'Roboto', sans-serif;
 }
