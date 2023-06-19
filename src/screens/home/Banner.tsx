@@ -6,10 +6,10 @@ interface BannerProps {}
 
 const images = [
   {
-    url: "/assets/images/banner.png",
+    url: "/assets/images/banner3.png",
   },
   {
-    url: "/assets/images/banner-2.png",
+    url: "/assets/images/banner4.png",
   },
 ];
 
@@ -31,9 +31,16 @@ const services = [
     label: "Xét nghiệm tại nhà",
   },
   {
+    url: "/assets/images/services/6.png",
+    label: "Chăm sóc tại nhà",
+  },
+  {
     url: "/assets/images/services/5.png",
     label: "Thanh toán viện phí",
   },
+
+
+
 ];
 
 const Banner: FC<BannerProps> = ({}) => {

@@ -5,7 +5,7 @@ interface FeatureNewsProps {}
 const news = [
   {
     title:
-      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG MEDPRO TẠI PHÒNG KHÁM DOCTOR CHECK",
+      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG BOOKING CARE TẠI PHÒNG KHÁM DOCTOR CHECK",
     description: "27/04/2023, 10:11 - Trương Hoàng Nhân",
     href: "/",
     image: "/assets/images/news/1.webp",
@@ -26,21 +26,21 @@ const news = [
   },
   {
     title:
-      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG MEDPRO TẠI PHÒNG KHÁM DOCTOR CHECK",
+      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG BOOKING CARE TẠI PHÒNG KHÁM DOCTOR CHECK",
     description: "26/04/2023, 09:40 - NGUYEN CAM",
     href: "/",
     image: "/assets/images/news/4.webp",
   },
   {
     title:
-      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG MEDPRO TẠI PHÒNG KHÁM DOCTOR CHECK",
+      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG BOOKING CARE TẠI PHÒNG KHÁM DOCTOR CHECK",
     description: "26/04/2023, 09:40 - NGUYEN CAM",
     href: "/",
     image: "/assets/images/news/4.webp",
   },
   {
     title:
-      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG MEDPRO TẠI PHÒNG KHÁM DOCTOR CHECK",
+      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG BOOKING CARE TẠI PHÒNG KHÁM DOCTOR CHECK",
     description: "26/04/2023, 09:40 - NGUYEN CAM",
     href: "/",
     image: "/assets/images/news/4.webp",

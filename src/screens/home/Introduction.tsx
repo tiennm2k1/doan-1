@@ -30,21 +30,21 @@ const Introduction: FC<IntroductionProps> = ({}) => {
       >
         <div className="flex w-full max-w-[1140px] mx-auto">
           <div className="flex-shrink-0 w-[35%]">
-            <span className="tracking-[3px] text-[#9bf4cf] uppercase font-medium text-[10px]">
+            <span className="tracking-[3px] text-[#b094b0] uppercase font-medium text-[15px]">
               GIỚI THIỆU
             </span>
             <h2 className="mt-2 text-3xl font-medium">
-              MEDPRO
+              BOOKING CARE
               <br />
               Đặt lịch khám bệnh
             </h2>
           </div>
           <p>
-            <b>Medpro</b> là giải pháp đặt lịch khám bệnh, chăm sóc sức khỏe
+            <b>Booking Care</b> là giải pháp đặt lịch khám bệnh, chăm sóc sức khỏe
             trực tuyến cho cả gia đình. Người dùng chủ động trong việc khám chữa
             bệnh, được lựa chọn dịch vụ, chuyên khoa, bác sĩ tại các bệnh viện
-            và phòng khám hàng đầu Việt Nam như Bệnh viện Đại học Y Dược TP.HCM,
-            Bệnh viện Chợ Rẫy, Bệnh viện Nhi Đồng Thành Phố.
+            và phòng khám hàng đầu Việt Nam như bệnh viện Bạch Mai,
+            bệnh viện Việt Đức, bệnh viện XanhPon,...
           </p>
         </div>
       </div>
@@ -65,7 +65,7 @@ const Introduction: FC<IntroductionProps> = ({}) => {
                 className="bg-white relative p-4 transition-all duration-300 ease-in-out mt-[-45px] mx-[8%] hover:mt-[-54px]"
                 style={{ boxShadow: "0 5px 35px rgba(0,0,0,.1)" }}
               >
-                <h4 className="text-center text-lg font-medium">
+                <h4 className="text-center text-lg font-semibold">
                   {feature.title}
                 </h4>
                 <p className="text-sm mt-2 tracking-[1px]">

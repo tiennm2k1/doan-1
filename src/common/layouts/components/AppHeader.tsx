@@ -38,26 +38,21 @@ const links = [
 
 const AppHeader: FC<AppHeaderProps> = ({}) => {
   return (
-    <div className="flex justify-center m-auto w-full">
+    <div className="flex justify-center m-auto w-full " style={{position: "fixed", zIndex: 99999, backgroundColor: "#fff"}}>
       <div
-        style={{ maxWidth: 1440 }}
+        style={{ maxWidth: 1400 }}
         className="w-full flex justify-between items-center"
       >
         <Link href="/" className="block p-4">
           <img
-            src="/assets/images/header_logo.svg"
-            className="w-[200px]"
+            src="/assets/images/logo5.png"
+            className="w-[300px] ml-14"
             alt="Logo"
           />
         </Link>
-        <div className="flex p-4 flex-col">
+        <div className="flex p-0 flex-col">
           <div className="w-full p-3 flex flex-row gap-4 justify-end">
-            <button className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-[#065eb3]">
-              <AiFillMobile className="text-lg" />
-              <span>Tải ứng dụng</span>
-            </button>
-
-            <button
+          <button
               className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-white"
               style={{
                 backgroundImage:
@@ -67,6 +62,13 @@ const AppHeader: FC<AppHeaderProps> = ({}) => {
               <BiLogIn className="text-lg" />
               <span>Đăng nhập</span>
             </button>
+           
+            <button className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-[#065eb3]">
+              <AiFillMobile className="text-lg" />
+              <span>Đăng ký</span>
+            </button>
+
+            
           </div>
 
           <hr />

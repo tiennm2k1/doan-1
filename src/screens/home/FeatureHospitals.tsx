@@ -8,34 +8,30 @@ interface FeatureHospitalsProps {}
 const hospitals = [
   {
     image: "/assets/images/hospitals/1.jpg",
-    name: "Bệnh viện nhi đồng 1",
+    name: "Bệnh viện Bạch Mai",
     href: "#",
   },
   {
     image: "/assets/images/hospitals/2.jpg",
-    name: "Bệnh viện nhi đồng 1",
+    name: "Bệnh viện Việt Đức",
     href: "#",
   },
   {
     image: "/assets/images/hospitals/3.jpg",
-    name: "Bệnh viện nhi đồng 1",
+    name: "Bệnh viện Quân đội 108",
     href: "#",
   },
   {
     image: "/assets/images/hospitals/4.jpg",
-    name: "Bệnh viện nhi đồng 1",
+    name: "Bệnh viện Thanh Nhàn",
     href: "#",
   },
   {
     image: "/assets/images/hospitals/5.jpg",
-    name: "Bệnh viện nhi đồng 1",
+    name: "Bệnh viện Xanhpon",
     href: "#",
   },
-  {
-    image: "/assets/images/hospitals/6.jpg",
-    name: "Bệnh viện nhi đồng 1",
-    href: "#",
-  },
+
 ];
 
 const FeatureHospitals: FC<FeatureHospitalsProps> = ({}) => {
