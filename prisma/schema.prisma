@@ -12,17 +12,18 @@ datasource db {
 }
 
 model User {
-  id            Int        @id @default(autoincrement())
-  email         String?    @unique
-  username      String?
-  avatar        String
-  password_hash String     @db.Text
-  role          UserRole   @default(PATIENT)
-  date_of_birth DateTime
-  phone_number  String
-  gender        UserGender
-  address       String     @db.Text
-  ethnic        String
+  id               Int        @id @default(autoincrement())
+  email            String?    @unique
+  username         String?
+  avatar           String
+  password_hash    String     @db.Text
+  role             UserRole   @default(PATIENT)
+  date_of_birth    DateTime
+  phone_number     String
+  gender           UserGender
+  address          String     @db.Text
+  ethnic           String
+  health_insurance String
 
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
