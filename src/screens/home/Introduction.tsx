@@ -78,7 +78,7 @@ const Introduction: FC<IntroductionProps> = ({}) => {
           })}
         </div>
 
-        {/* <p className="text-center">dkcndkcmdknckmd</p> */}
+        {/* <p className="text-center opacity-10">------------------------</p> */}
       </div>
     </>
   );
