@@ -1,15 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC, ReactElement } from "react";
+import { FC } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { FaArrowLeft } from "react-icons/fa";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerValidator } from "@/validators/auth";
 import FormError from "@/common/ui/FormError";
-import { trpc } from "@/libs/trpc";
-import { toast } from "react-hot-toast";
-import Spinner from "@/common/ui/Spinner";
-import AuthLayout from "@/common/layouts/templates/AuthLayout";
+
+interface registerProps {}
 
 type FormState = {
   username: string;
@@ -17,7 +15,7 @@ type FormState = {
   password: string;
 };
 
-const RegisterPage = ({}) => {
+const RegisterPage: FC<registerProps> = ({}) => {
   const router = useRouter();
   const {
     control,
@@ -32,20 +30,8 @@ const RegisterPage = ({}) => {
     resolver: zodResolver(registerValidator),
   });
 
-  const { mutate, isLoading } = trpc.auth.register.useMutation({
-    onSuccess(data) {
-      toast.success("Đăng ký thành công");
-      router.push("/login");
-    },
-    onError(error: any) {
-      if (error.shape.message) {
-        toast.error(error.shape.message);
-      }
-    },
-  });
-
   const onSubmit: SubmitHandler<FormState> = (values) => {
-    mutate(values);
+    console.log(values);
   };
 
   return (
@@ -123,13 +109,9 @@ const RegisterPage = ({}) => {
 
                 <button
                   type="submit"
-                  className="flex justify-center py-3 px-4 bg-[#1da1f2] w-full rounded text-white"
+                  className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white"
                 >
-                  {isLoading ? (
-                    <Spinner size={20} color="#fff" sencondaryColor="#fff" />
-                  ) : (
-                    "Đăng ký"
-                  )}
+                  Đăng ký
                 </button>
               </form>
 
@@ -179,10 +161,6 @@ const RegisterPage = ({}) => {
       </div>
     </div>
   );
-};
-
-RegisterPage.getLayout = (page: ReactElement) => {
-  return <AuthLayout>{page}</AuthLayout>;
 };
 
 export default RegisterPage;

@@ -1,64 +1,12 @@
-import AuthLayout from "@/common/layouts/templates/AuthLayout";
-import FormError from "@/common/ui/FormError";
-import Spinner from "@/common/ui/Spinner";
-import { trpc } from "@/libs/trpc";
-import { userAtom } from "@/store/user";
-import { loginValidator } from "@/validators/auth";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useSetAtom } from "jotai";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC, ReactElement } from "react";
-import { Controller, SubmitHandler, useForm } from "react-hook-form";
-import { toast } from "react-hot-toast";
+import { FC } from "react";
 import { FaArrowLeft } from "react-icons/fa";
 
-type FormState = {
-  email: string;
-  password: string;
-};
+interface loginProps {}
 
-const LoginPage = ({}) => {
+const LoginPage: FC<loginProps> = ({}) => {
   const router = useRouter();
-  const setUser = useSetAtom(userAtom);
-  const { refetch } = trpc.user.getMe.useQuery(undefined, {
-    retry: false,
-    enabled: false,
-    onSuccess(data) {
-      console.log(data.user);
-      setUser(data.user as any);
-      router.push("/");
-    },
-  });
-
-  const {
-    control,
-    formState: { errors },
-    handleSubmit,
-  } = useForm<FormState>({
-    defaultValues: {
-      email: "",
-      password: "",
-    },
-    resolver: zodResolver(loginValidator),
-  });
-
-  const { mutate, isLoading } = trpc.auth.login.useMutation({
-    onSuccess(data) {
-      localStorage.setItem("booking_care_token", data.token);
-      toast.success("Đăng nhập thành công");
-      refetch();
-    },
-    onError(error: any) {
-      if (error.shape.message) {
-        toast.error(error.shape.message);
-      }
-    },
-  });
-
-  const onSubmit: SubmitHandler<FormState> = (values) => {
-    mutate(values);
-  };
 
   return (
     <div className="w-full">
@@ -79,52 +27,24 @@ const LoginPage = ({}) => {
                 className="w-[280px]"
               />
 
-              <form onSubmit={handleSubmit(onSubmit)} className="w-full mt-10">
+              <form className="w-full mt-10">
                 <div className="mb-6">
-                  <Controller
-                    control={control}
-                    name="email"
-                    render={({ field }) => (
-                      <input
-                        className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
-                        type="text"
-                        placeholder="Email"
-                        {...field}
-                      />
-                    )}
+                  <input
+                    className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
+                    type="text"
+                    placeholder="Email"
                   />
-
-                  {errors.email?.message ? (
-                    <FormError message={errors.email.message} />
-                  ) : null}
                 </div>
                 <div className="mb-6">
-                  <Controller
-                    control={control}
-                    name="password"
-                    render={({ field }) => (
-                      <input
-                        className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
-                        type="password"
-                        placeholder="Mật khẩu"
-                        {...field}
-                      />
-                    )}
+                  <input
+                    className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
+                    type="password"
+                    placeholder="Mật khẩu"
                   />
-                  {errors.password?.message ? (
-                    <FormError message={errors.password.message} />
-                  ) : null}
                 </div>
 
-                <button
-                  disabled={isLoading}
-                  className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white flex justify-center items-center"
-                >
-                  {isLoading ? (
-                    <Spinner size={20} color="#fff" sencondaryColor="#fff" />
-                  ) : (
-                    "Đăng nhập"
-                  )}
+                <button className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white">
+                  Đăng nhập
                 </button>
               </form>
 
@@ -174,10 +94,6 @@ const LoginPage = ({}) => {
       </div>
     </div>
   );
-};
-
-LoginPage.getLayout = (page: ReactElement) => {
-  return <AuthLayout>{page}</AuthLayout>;
 };
 
 export default LoginPage;

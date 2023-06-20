@@ -49,7 +49,7 @@ const news = [
 
 const FeatureNews: FC<FeatureNewsProps> = ({}) => {
   return (
-    <div className="w-fll mt-16 mx-auto max-w-[1140px]">
+    <div className="w-fll mt-20 mx-auto max-w-[1140px]">
       <h3 className="text-center text-2xl mb-8 uppercase">
         tin tức và sự kiện
       </h3>

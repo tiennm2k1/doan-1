@@ -1,6 +1,5 @@
 import { initTRPC } from "@trpc/server";
 import { Context } from "./context";
-// import authenticate from "./middlewares/authenticate";
 // Avoid exporting the entire t-object
 // since it's not very descriptive.
 // For instance, the use of a t variable
@@ -11,4 +10,3 @@ const t = initTRPC.context<Context>().create();
 export const router = t.router;
 export const procedure = t.procedure;
 export const middleware = t.middleware;
-// export const protectedProcedure = t.procedure.use(authenticate);

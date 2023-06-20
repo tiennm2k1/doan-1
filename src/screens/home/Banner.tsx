@@ -76,7 +76,7 @@ const Banner: FC<BannerProps> = ({}) => {
           boxShadow: "0 6px 24px 0 rgba(0,0,0,.05), 0 0 0 1px rgba(0,0,0,.08)",
         }}
       >
-        <h2 className="uppercase text-center mb-6 font-bold text-xl">
+        <h2 className="uppercase text-center mb-5 font-bold text-xl">
           {" "}
           Chọn dịch vụ
         </h2>
@@ -84,7 +84,7 @@ const Banner: FC<BannerProps> = ({}) => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="flex cursor-pointer justify-center py-2 items-center max-w-[170px] flex-col gap-1 hover:-translate-y-[1px] duration-300 hover:shadow-card hover:rounded-xl"
+              className="flex items-center max-w-[170px] flex-col gap-1"
             >
               <img
                 className="object-cover w-11 aspect-square"
@@ -97,7 +97,6 @@ const Banner: FC<BannerProps> = ({}) => {
         </div>
       </div>
     </div>
-  
   );
 };
 

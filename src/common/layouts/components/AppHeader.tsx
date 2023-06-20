@@ -1,6 +1,3 @@
-import { userAtom } from "@/store/user";
-import { genImageUrl } from "@/utils/get-image-url";
-import { useAtomValue } from "jotai";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, useRef } from "react";
@@ -45,9 +42,6 @@ const AppHeader: FC<AppHeaderProps> = ({}) => {
   const [ref, size] = useElementSize();
   const router = useRouter();
 
-  const user = useAtomValue(userAtom);
-  console.log(genImageUrl(user?.avatar));
-
   return (
     <>
       <div
@@ -67,42 +61,27 @@ const AppHeader: FC<AppHeaderProps> = ({}) => {
             />
           </Link>
           <div className="flex p-0 flex-col">
-            {!user ? (
-              <div className="w-full p-3 flex flex-row gap-4 justify-end">
-                <button
-                  onClick={() => router.push("/login")}
-                  className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-white"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(90deg, rgb(3, 82, 204), rgb(11, 125, 241))",
-                  }}
-                >
-                  <BiLogIn className="text-lg" />
-                  <span>Đăng nhập</span>
-                </button>
+            <div className="w-full p-3 flex flex-row gap-4 justify-end">
+              <button
+                onClick={() => router.push("/login")}
+                className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-white"
+                style={{
+                  backgroundImage:
+                    "linear-gradient(90deg, rgb(3, 82, 204), rgb(11, 125, 241))",
+                }}
+              >
+                <BiLogIn className="text-lg" />
+                <span>Đăng nhập</span>
+              </button>
 
-                <button
-                  onClick={() => router.push("/register")}
-                  className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-[#065eb3]"
-                >
-                  <AiFillMobile className="text-lg" />
-                  <span>Đăng ký</span>
-                </button>
-              </div>
-            ) : (
-              <div className="w-full p-3 flex flex-row gap-5 justify-end">
-                <button
-                  className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-white"
-                  style={{
-                    backgroundImage:
-                      "linear-gradient(90deg, rgb(3, 82, 204), rgb(11, 125, 241))",
-                  }}
-                >
-                  <img className="w-5" src={genImageUrl(user?.avatar)} alt="" />
-                  <span>{user.username}</span>
-                </button>
-              </div>
-            )}
+              <button
+                onClick={() => router.push("/register")}
+                className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-[#065eb3]"
+              >
+                <AiFillMobile className="text-lg" />
+                <span>Đăng ký</span>
+              </button>
+            </div>
 
             <hr />
 

@@ -35,9 +35,6 @@ export const trpc = createTRPCNext<AppRouter>({
           async headers() {
             return {
               // authorization: getAuthCookie(),
-              authorization: !!localStorage?.getItem("booking_care_token")
-                ? `Bearer ${localStorage?.getItem("booking_care_token")}`
-                : undefined,
             };
           },
         }),
