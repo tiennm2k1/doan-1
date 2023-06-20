@@ -2,8 +2,10 @@ import AuthLayout from "@/common/layouts/templates/AuthLayout";
 import FormError from "@/common/ui/FormError";
 import Spinner from "@/common/ui/Spinner";
 import { trpc } from "@/libs/trpc";
+import { userAtom } from "@/store/user";
 import { loginValidator } from "@/validators/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useSetAtom } from "jotai";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, ReactElement } from "react";
@@ -18,6 +20,19 @@ type FormState = {
 
 const LoginPage = ({}) => {
   const router = useRouter();
+  const setUser = useSetAtom(userAtom);
+  const { refetch, isLoading: isGettingUser } = trpc.user.getMe.useQuery(
+    undefined,
+    {
+      retry: false,
+      enabled: false,
+      onSuccess(data) {
+        console.log(data.user);
+        setUser(data.user as any);
+        router.push("/");
+      },
+    }
+  );
 
   const {
     control,
@@ -35,7 +50,7 @@ const LoginPage = ({}) => {
     onSuccess(data) {
       localStorage.setItem("booking_care_token", data.token);
       toast.success("Đăng nhập thành công");
-      router.push("/");
+      refetch();
     },
     onError(error: any) {
       if (error.shape.message) {
@@ -105,7 +120,7 @@ const LoginPage = ({}) => {
                 </div>
 
                 <button className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white flex justify-center items-center">
-                  {isLoading ? (
+                  {isLoading || isGettingUser ? (
                     <Spinner size={20} color="#fff" sencondaryColor="#fff" />
                   ) : (
                     "Đăng nhập"
