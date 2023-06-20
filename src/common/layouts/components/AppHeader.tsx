@@ -1,12 +1,14 @@
 import { userAtom } from "@/store/user";
 import { genImageUrl } from "@/utils/get-image-url";
-import { useAtomValue } from "jotai";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC, useRef } from "react";
+import { FC, MouseEvent, useRef } from "react";
 import { AiFillMobile } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
 import { useElementSize } from "usehooks-ts";
+import ProfileMenu from "./ProfileMenu";
+import { openProfileMenuAtom } from "@/store/ui";
 
 interface AppHeaderProps {}
 
@@ -44,9 +46,16 @@ const links = [
 const AppHeader: FC<AppHeaderProps> = ({}) => {
   const [ref, size] = useElementSize();
   const router = useRouter();
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   const user = useAtomValue(userAtom);
-  console.log(genImageUrl(user?.avatar));
+  const setOpenProfileMenu = useSetAtom(openProfileMenuAtom);
+
+  function clickOutSideMenu(e: MouseEvent<HTMLDivElement>) {
+    if (!buttonRef?.current?.contains(e.target as Node)) {
+      setOpenProfileMenu(false);
+    }
+  }
 
   return (
     <>
@@ -90,8 +99,10 @@ const AppHeader: FC<AppHeaderProps> = ({}) => {
                 </button>
               </div>
             ) : (
-              <div className="w-full p-3 flex flex-row gap-5 justify-end">
+              <div className="w-full p-3 flex flex-row gap-5 justify-end relative">
                 <button
+                  ref={buttonRef}
+                  onClick={() => setOpenProfileMenu((prev) => !prev)}
                   className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-white"
                   style={{
                     backgroundImage:
@@ -101,6 +112,8 @@ const AppHeader: FC<AppHeaderProps> = ({}) => {
                   <img className="w-5" src={genImageUrl(user?.avatar)} alt="" />
                   <span>{user.username}</span>
                 </button>
+
+                <ProfileMenu onClickOutside={clickOutSideMenu} />
               </div>
             )}
 
