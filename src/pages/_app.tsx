@@ -24,6 +24,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
 
   return (
     <Provider store={store}>
+      {/* @ts-ignore */}
       <AuthMiddleware>{getLayout(<Component {...pageProps} />)}</AuthMiddleware>
       <Toaster />
     </Provider>
