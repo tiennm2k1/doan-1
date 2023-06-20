@@ -51,13 +51,13 @@ const FeatureHospitals: FC<FeatureHospitalsProps> = ({}) => {
           slidesPerView={3}
           spaceBetween={30}
           autoplay={{
-            delay: 3500,
+            delay: 1000,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
           }}
           className="mySwiper"
           modules={[Autoplay]}
-          speed={1200}
+          speed={600}
         >
           {hospitals.map((hospital, index) => (
             <SwiperSlide
