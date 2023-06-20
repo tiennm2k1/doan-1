@@ -7,7 +7,7 @@ const ProcedurePage = ({}) => {
       <div className="overflow-hidden">
         <img
           src="https://bo-api.medpro.com.vn:5000/static/images/medpro/web/bg_gioi_thieu.png?t=1111111"
-          className="w-full h-64 object-center"
+          className="w-full h-64 object-center object-cover"
         />
       </div>
       <div className="absolute top-0 flex flex-col w-full items-center tracking-wide">
@@ -16,7 +16,7 @@ const ProcedurePage = ({}) => {
         </p>
       </div>
       <div className="mt-8 w-full flex flex-col items-center">
-        <div className="flex tracking-wide relative" style={{width: "900px"}}>
+        <div className="flex tracking-wide relative" style={{ width: "900px" }}>
           <div className="text-base text-left font-semibold text-blue-500 pt-8 pr-8 border-r-4 w-28">
             Bước 1
           </div>
@@ -42,18 +42,19 @@ const ProcedurePage = ({}) => {
             </ul>
           </div>
         </div>
-        <div className="flex tracking-wide relative" style={{width: "900px"}}>
+        <div className="flex tracking-wide relative" style={{ width: "900px" }}>
           <div className="text-base text-left font-semibold text-blue-500 pt-8 pr-8 border-r-4 w-28">
             Bước 2
           </div>
           <div className="absolute w-4 h-4 bg-blue-500 rounded-full top-9 left-[93px]"></div>
           <div className="w-full">
             <div className="text-base text-left pt-8 font-semibold text-blue-500 pl-8">
-                THANH TOÁN TIỀN KHÁM
+              THANH TOÁN TIỀN KHÁM
             </div>
             <ul className="pb-10 border-b-2 pl-8">
               <li className="mt-1">
-                Chọn loại thẻ thanh toán: Thẻ khám bệnh, thẻ thanh toán quốc tế hoặc thẻ ATM nội địa hoặc ví điện tử.
+                Chọn loại thẻ thanh toán: Thẻ khám bệnh, thẻ thanh toán quốc tế
+                hoặc thẻ ATM nội địa hoặc ví điện tử.
               </li>
               <li className="mt-1">
                 Kiểm tra tiền khám, các loại phí và tổng tiền thanh toán.
