@@ -8,11 +8,11 @@ interface MainLayoutProps {
 
 const MainLayout: FC<MainLayoutProps> = ({ children }: MainLayoutProps) => {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <AppHeader />
-      {children}
+      <div className="flex-1">{children}</div>
       <AppFooter />
-    </>
+    </div>
   );
 };
 
