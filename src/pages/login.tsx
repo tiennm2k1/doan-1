@@ -1,12 +1,52 @@
+import FormError from "@/common/ui/FormError";
+import Spinner from "@/common/ui/Spinner";
+import { trpc } from "@/libs/trpc";
+import { loginValidator } from "@/validators/auth";
+import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
 import { FaArrowLeft } from "react-icons/fa";
 
 interface loginProps {}
 
+type FormState = {
+  email: string;
+  password: string;
+};
+
 const LoginPage: FC<loginProps> = ({}) => {
   const router = useRouter();
+
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<FormState>({
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+    resolver: zodResolver(loginValidator),
+  });
+
+  const { mutate, isLoading } = trpc.auth.login.useMutation({
+    onSuccess(data) {
+      toast.success("Đăng nhập thành công");
+      router.push("/");
+    },
+    onError(error: any) {
+      if (error.shape.message) {
+        toast.error(error.shape.message);
+      }
+    },
+  });
+
+  const onSubmit: SubmitHandler<FormState> = (values) => {
+    mutate(values);
+  };
 
   return (
     <div className="w-full">
@@ -27,24 +67,49 @@ const LoginPage: FC<loginProps> = ({}) => {
                 className="w-[280px]"
               />
 
-              <form className="w-full mt-10">
+              <form onSubmit={handleSubmit(onSubmit)} className="w-full mt-10">
                 <div className="mb-6">
-                  <input
-                    className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
-                    type="text"
-                    placeholder="Email"
+                  <Controller
+                    control={control}
+                    name="email"
+                    render={({ field }) => (
+                      <input
+                        className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
+                        type="text"
+                        placeholder="Email"
+                        {...field}
+                      />
+                    )}
                   />
+
+                  {errors.email?.message ? (
+                    <FormError message={errors.email.message} />
+                  ) : null}
                 </div>
                 <div className="mb-6">
-                  <input
-                    className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
-                    type="password"
-                    placeholder="Mật khẩu"
+                  <Controller
+                    control={control}
+                    name="password"
+                    render={({ field }) => (
+                      <input
+                        className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
+                        type="password"
+                        placeholder="Mật khẩu"
+                        {...field}
+                      />
+                    )}
                   />
+                  {errors.password?.message ? (
+                    <FormError message={errors.password.message} />
+                  ) : null}
                 </div>
 
-                <button className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white">
-                  Đăng nhập
+                <button className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white flex justify-center items-center">
+                  {isLoading ? (
+                    <Spinner size={20} color="#fff" sencondaryColor="#fff" />
+                  ) : (
+                    "Đăng nhập"
+                  )}
                 </button>
               </form>
 
