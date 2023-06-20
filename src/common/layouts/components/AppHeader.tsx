@@ -14,11 +14,11 @@ const links = [
   },
   {
     label: "Giới thiệu",
-    href: "/",
+    href: "/introduce",
   },
   {
     label: "Quy trình",
-    href: "/",
+    href: "/procedure",
   },
   {
     label: "Hướng dẫn",
