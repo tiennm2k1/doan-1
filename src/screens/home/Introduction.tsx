@@ -49,32 +49,36 @@ const Introduction: FC<IntroductionProps> = ({}) => {
         </div>
       </div>
 
-      <div className="-translate-y-[75px] -mb-[50px] w-full py-8 m-auto max-w-[1140px] grid grid-cols-3 gap-6">
-        {features.map((feature, index) => {
-          return (
-            <div key={index} className="relative">
-              <div className="rounded overflow-hidden shadow bg-white px-4">
-                <img
-                  className="w-full object-cover"
-                  src={feature.image}
-                  alt=""
-                />
-              </div>
+      <div className="bg-[#F8FAFD]">
+        <div className=" -translate-y-[75px] -mb-[50px] w-full py-8 m-auto max-w-[1140px] grid grid-cols-3 gap-6">
+          {features.map((feature, index) => {
+            return (
+              <div key={index} className="relative">
+                <div className="rounded overflow-hidden shadow bg-white px-4">
+                  <img
+                    className="w-full object-cover"
+                    src={feature.image}
+                    alt=""
+                  />
+                </div>
 
-              <div
-                className="bg-white relative p-4 transition-all duration-300 ease-in-out mt-[-45px] mx-[8%] hover:mt-[-54px]"
-                style={{ boxShadow: "0 5px 35px rgba(0,0,0,.1)" }}
-              >
-                <h4 className="text-center text-lg font-semibold">
-                  {feature.title}
-                </h4>
-                <p className="text-sm mt-2 tracking-[1px]">
-                  {feature.description}
-                </p>
+                <div
+                  className="bg-white relative p-4 transition-all duration-300 ease-in-out mt-[-45px] mx-[8%] hover:mt-[-54px]"
+                  style={{ boxShadow: "0 5px 35px rgba(0,0,0,.1)" }}
+                >
+                  <h4 className="text-center text-lg font-semibold">
+                    {feature.title}
+                  </h4>
+                  <p className="text-sm mt-2 tracking-[1px]">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
+        </div>
+
+        {/* <p className="text-center">dkcndkcmdknckmd</p> */}
       </div>
     </>
   );
