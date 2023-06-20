@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { FC, useRef } from "react";
 import { AiFillMobile } from "react-icons/ai";
 import { BiLogIn } from "react-icons/bi";
@@ -39,8 +40,7 @@ const links = [
 
 const AppHeader: FC<AppHeaderProps> = ({}) => {
   const [ref, size] = useElementSize();
-
-  console.log({ size });
+  const router = useRouter();
 
   return (
     <>
@@ -63,6 +63,7 @@ const AppHeader: FC<AppHeaderProps> = ({}) => {
           <div className="flex p-0 flex-col">
             <div className="w-full p-3 flex flex-row gap-4 justify-end">
               <button
+                onClick={() => router.push("/login")}
                 className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-white"
                 style={{
                   backgroundImage:
@@ -73,7 +74,10 @@ const AppHeader: FC<AppHeaderProps> = ({}) => {
                 <span>Đăng nhập</span>
               </button>
 
-              <button className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-[#065eb3]">
+              <button
+                onClick={() => router.push("/register")}
+                className="flex items-center gap-[6px] rounded border-[0.5px] border-[#065eb3] py-2 px-4 text-[14px] text-[#065eb3]"
+              >
                 <AiFillMobile className="text-lg" />
                 <span>Đăng ký</span>
               </button>
