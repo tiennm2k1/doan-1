@@ -1,12 +1,38 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC } from "react";
+import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { FaArrowLeft } from "react-icons/fa";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { registerValidator } from "@/validators/auth";
+import FormError from "@/common/ui/FormError";
 
 interface registerProps {}
 
+type FormState = {
+  username: string;
+  email: string;
+  password: string;
+};
+
 const RegisterPage: FC<registerProps> = ({}) => {
   const router = useRouter();
+  const {
+    control,
+    formState: { errors },
+    handleSubmit,
+  } = useForm<FormState>({
+    defaultValues: {
+      email: "",
+      password: "",
+      username: "",
+    },
+    resolver: zodResolver(registerValidator),
+  });
+
+  const onSubmit: SubmitHandler<FormState> = (values) => {
+    console.log(values);
+  };
 
   return (
     <div className="w-full">
@@ -27,30 +53,64 @@ const RegisterPage: FC<registerProps> = ({}) => {
                 className="w-[280px]"
               />
 
-              <form className="w-full mt-10">
+              <form onSubmit={handleSubmit(onSubmit)} className="w-full mt-10">
                 <div className="mb-6">
-                  <input
-                    className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
-                    type="password"
-                    placeholder="Tên tài khoản"
+                  <Controller
+                    control={control}
+                    name="username"
+                    render={({ field }) => (
+                      <input
+                        className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
+                        type="text"
+                        placeholder="Tên tài khoản"
+                        {...field}
+                      />
+                    )}
                   />
+                  {errors.username?.message ? (
+                    <FormError message={errors.username.message} />
+                  ) : null}
                 </div>
                 <div className="mb-6">
-                  <input
-                    className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
-                    type="text"
-                    placeholder="Email"
+                  <Controller
+                    control={control}
+                    name="email"
+                    render={({ field }) => (
+                      <input
+                        className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
+                        type="text"
+                        placeholder="Email"
+                        {...field}
+                      />
+                    )}
                   />
+
+                  {errors.email?.message ? (
+                    <FormError message={errors.email.message} />
+                  ) : null}
                 </div>
                 <div className="mb-6">
-                  <input
-                    className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
-                    type="password"
-                    placeholder="Mật khẩu"
+                  <Controller
+                    control={control}
+                    name="password"
+                    render={({ field }) => (
+                      <input
+                        className="w-full border border-[#cacaca] leading-6 py-3 px-4 rounded"
+                        type="password"
+                        placeholder="Mật khẩu"
+                        {...field}
+                      />
+                    )}
                   />
+                  {errors.password?.message ? (
+                    <FormError message={errors.password.message} />
+                  ) : null}
                 </div>
 
-                <button className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white">
+                <button
+                  type="submit"
+                  className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white"
+                >
                   Đăng ký
                 </button>
               </form>

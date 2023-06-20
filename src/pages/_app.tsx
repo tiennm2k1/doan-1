@@ -4,6 +4,7 @@ import { NextPage } from "next";
 import type { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
 import { trpc } from "@/libs/trpc";
+import { Toaster } from "react-hot-toast";
 
 // For pages with nested layouts
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
@@ -17,7 +18,12 @@ export type AppPropsWithLayout = AppProps & {
 function App({ Component, pageProps }: AppPropsWithLayout) {
   const getLayout = Component.getLayout ?? ((page: React.ReactNode) => page);
 
-  return <>{getLayout(<Component {...pageProps} />)}</>;
+  return (
+    <>
+      {getLayout(<Component {...pageProps} />)}
+      <Toaster />
+    </>
+  );
 }
 
 export default trpc.withTRPC(App);
