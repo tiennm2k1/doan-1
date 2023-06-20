@@ -18,10 +18,19 @@ const AppFooter: FC<AppFooterProps> = ({}) => {
             <li>Điện thoại: 0981.367.828</li>
           </ul>
           <ul className="text-sm flex flex-col gap-[14px]">
-            <li>Liên hệ</li>
-            <li>Điều khoản dịch vụ</li>
-            <li>Chính sách bảo mật</li>
-            <li>Quy định sử dụng</li>
+            <li className="cursor-pointer hover:text-[#658bc5]">Liên hệ</li>
+
+            <li className="cursor-pointer hover:text-[#658bc5]">
+              Điều khoản dịch vụ
+            </li>
+
+            <li className="cursor-pointer hover:text-[#658bc5]">
+              Chính sách bảo mật
+            </li>
+
+            <li className="cursor-pointer hover:text-[#658bc5]">
+              Quy định sử dụng
+            </li>
           </ul>
         </div>
       </div>
