@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, ReactElement } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { FaArrowLeft } from "react-icons/fa";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -9,8 +9,7 @@ import FormError from "@/common/ui/FormError";
 import { trpc } from "@/libs/trpc";
 import { toast } from "react-hot-toast";
 import Spinner from "@/common/ui/Spinner";
-
-interface registerProps {}
+import AuthLayout from "@/common/layouts/templates/AuthLayout";
 
 type FormState = {
   username: string;
@@ -18,7 +17,7 @@ type FormState = {
   password: string;
 };
 
-const RegisterPage: FC<registerProps> = ({}) => {
+const RegisterPage = ({}) => {
   const router = useRouter();
   const {
     control,
@@ -180,6 +179,10 @@ const RegisterPage: FC<registerProps> = ({}) => {
       </div>
     </div>
   );
+};
+
+RegisterPage.getLayout = (page: ReactElement) => {
+  return <AuthLayout>{page}</AuthLayout>;
 };
 
 export default RegisterPage;

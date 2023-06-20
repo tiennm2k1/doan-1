@@ -1,3 +1,4 @@
+import AuthLayout from "@/common/layouts/templates/AuthLayout";
 import FormError from "@/common/ui/FormError";
 import Spinner from "@/common/ui/Spinner";
 import { trpc } from "@/libs/trpc";
@@ -5,19 +6,17 @@ import { loginValidator } from "@/validators/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, ReactElement } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { toast } from "react-hot-toast";
 import { FaArrowLeft } from "react-icons/fa";
-
-interface loginProps {}
 
 type FormState = {
   email: string;
   password: string;
 };
 
-const LoginPage: FC<loginProps> = ({}) => {
+const LoginPage = ({}) => {
   const router = useRouter();
 
   const {
@@ -34,6 +33,7 @@ const LoginPage: FC<loginProps> = ({}) => {
 
   const { mutate, isLoading } = trpc.auth.login.useMutation({
     onSuccess(data) {
+      localStorage.setItem("booking_care_token", data.token);
       toast.success("Đăng nhập thành công");
       router.push("/");
     },
@@ -159,6 +159,10 @@ const LoginPage: FC<loginProps> = ({}) => {
       </div>
     </div>
   );
+};
+
+LoginPage.getLayout = (page: ReactElement) => {
+  return <AuthLayout>{page}</AuthLayout>;
 };
 
 export default LoginPage;
