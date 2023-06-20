@@ -21,18 +21,15 @@ type FormState = {
 const LoginPage = ({}) => {
   const router = useRouter();
   const setUser = useSetAtom(userAtom);
-  const { refetch, isLoading: isGettingUser } = trpc.user.getMe.useQuery(
-    undefined,
-    {
-      retry: false,
-      enabled: false,
-      onSuccess(data) {
-        console.log(data.user);
-        setUser(data.user as any);
-        router.push("/");
-      },
-    }
-  );
+  const { refetch } = trpc.user.getMe.useQuery(undefined, {
+    retry: false,
+    enabled: false,
+    onSuccess(data) {
+      console.log(data.user);
+      setUser(data.user as any);
+      router.push("/");
+    },
+  });
 
   const {
     control,
@@ -119,8 +116,11 @@ const LoginPage = ({}) => {
                   ) : null}
                 </div>
 
-                <button className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white flex justify-center items-center">
-                  {isLoading || isGettingUser ? (
+                <button
+                  disabled={isLoading}
+                  className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white flex justify-center items-center"
+                >
+                  {isLoading ? (
                     <Spinner size={20} color="#fff" sencondaryColor="#fff" />
                   ) : (
                     "Đăng nhập"
