@@ -1,6 +1,6 @@
 import { FC } from "react";
-import AppHeader from "../components/AppHeader";
 import AppFooter from "../components/AppFooter";
+import AppHeader from "../components/AppHeader";
 
 interface MainLayoutProps {
   children: React.ReactNode;

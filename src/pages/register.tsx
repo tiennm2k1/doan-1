@@ -1,13 +1,15 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FC } from "react";
+import { FC, ReactElement } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import { FaArrowLeft } from "react-icons/fa";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerValidator } from "@/validators/auth";
 import FormError from "@/common/ui/FormError";
-
-interface registerProps {}
+import { trpc } from "@/libs/trpc";
+import { toast } from "react-hot-toast";
+import Spinner from "@/common/ui/Spinner";
+import AuthLayout from "@/common/layouts/templates/AuthLayout";
 
 type FormState = {
   username: string;
@@ -15,7 +17,7 @@ type FormState = {
   password: string;
 };
 
-const RegisterPage: FC<registerProps> = ({}) => {
+const RegisterPage = ({}) => {
   const router = useRouter();
   const {
     control,
@@ -30,8 +32,20 @@ const RegisterPage: FC<registerProps> = ({}) => {
     resolver: zodResolver(registerValidator),
   });
 
+  const { mutate, isLoading } = trpc.auth.register.useMutation({
+    onSuccess(data) {
+      toast.success("Đăng ký thành công");
+      router.push("/login");
+    },
+    onError(error: any) {
+      if (error.shape.message) {
+        toast.error(error.shape.message);
+      }
+    },
+  });
+
   const onSubmit: SubmitHandler<FormState> = (values) => {
-    console.log(values);
+    mutate(values);
   };
 
   return (
@@ -109,9 +123,13 @@ const RegisterPage: FC<registerProps> = ({}) => {
 
                 <button
                   type="submit"
-                  className="py-3 px-4 bg-[#1da1f2] w-full rounded text-white"
+                  className="flex justify-center py-3 px-4 bg-[#1da1f2] w-full rounded text-white"
                 >
-                  Đăng ký
+                  {isLoading ? (
+                    <Spinner size={20} color="#fff" sencondaryColor="#fff" />
+                  ) : (
+                    "Đăng ký"
+                  )}
                 </button>
               </form>
 
@@ -161,6 +179,10 @@ const RegisterPage: FC<registerProps> = ({}) => {
       </div>
     </div>
   );
+};
+
+RegisterPage.getLayout = (page: ReactElement) => {
+  return <AuthLayout>{page}</AuthLayout>;
 };
 
 export default RegisterPage;

@@ -6,7 +6,7 @@ const items = [
   {
     id: 1,
     title: "Hỗ trợ đặt khám",
-    phone: "1900-2115",
+    phone: "1900-1234",
     image: "/assets/images/support/support-1.svg",
   },
   {
@@ -39,9 +39,10 @@ const Support: FC<SupportProps> = ({}) => {
       <div className="grid gap-5 grid-cols-4">
         {items.map((item) => (
           <div
-            className="flex flex-col items-center justify-center border border-[#dfe3eb] py-12"
+            className="flex cursor-pointer flex-col items-center justify-center border border-[#dfe3eb] py-12 duration-500 hover:shadow-xl hover:translate-y-[-8px]"
             key={item.id}
           >
+            
             <img className="w-20" src={item.image} alt="" />
             <p className="text-[#12263f] mt-2 mb-[10px]">{item.title}</p>
             <p className="text-[#12263f] ">{item.phone}</p>

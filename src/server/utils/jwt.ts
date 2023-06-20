@@ -7,7 +7,6 @@ export const signJwt = (
 ) => {
   return jwt.sign(payload, key, {
     ...(options ? options : {}),
-    algorithm: "RS256",
   });
 };
 
