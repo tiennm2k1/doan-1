@@ -1,0 +1,153 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model User {
+  id            Int        @id @default(autoincrement())
+  email         String?    @unique
+  username      String?
+  avatar        String
+  password_hash String     @db.Text
+  role          UserRole   @default(PATIENT)
+  date_of_birth DateTime
+  phone_number  String
+  gender        UserGender
+  address       String     @db.Text
+  ethnic        String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  doctor_infos DoctorInfo[]
+  reservations Reservation[]
+}
+
+model Hospital {
+  id      Int     @id @default(autoincrement())
+  name    String?
+  address String  @db.Text
+  image   String
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  doctor_infos DoctorInfo[]
+  departments  Department[]
+  reservations Reservation[]
+}
+
+model Department {
+  id          Int     @id @default(autoincrement())
+  name        String?
+  note        String  @db.Text
+  hospital_id Int?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  hospital          Hospital?         @relation(fields: [hospital_id], references: [id])
+  doctor_infos      DoctorInfo[]
+  reservation_items ReservationItem[]
+
+  @@index([hospital_id])
+}
+
+model DoctorInfo {
+  id            Int      @id @default(autoincrement())
+  hospital_id   Int?
+  department_id Int?
+  user_id       Int?
+  price         BigInt
+  created_at    DateTime @default(now())
+  updated_at    DateTime @updatedAt
+
+  hospital   Hospital?        @relation(fields: [hospital_id], references: [id])
+  user       User?            @relation(fields: [user_id], references: [id])
+  department Department?      @relation(fields: [department_id], references: [id])
+  calendars  DoctorCalendar[]
+
+  @@index([hospital_id])
+  @@index([user_id])
+  @@index([department_id])
+}
+
+model DoctorCalendar {
+  id      Int    @id @default(autoincrement())
+  info_id Int?
+  price   BigInt
+
+  info DoctorInfo? @relation(fields: [info_id], references: [id])
+
+  @@index([info_id])
+}
+
+model Reservation {
+  id          Int     @id @default(autoincrement())
+  hospital_id Int?
+  user_id     Int?
+  payment_id  Int
+  total       BigInt?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  hospital Hospital?         @relation(fields: [hospital_id], references: [id])
+  user     User?             @relation(fields: [user_id], references: [id])
+  payment  Payment?          @relation(fields: [payment_id], references: [id])
+  items    ReservationItem[]
+
+  @@index([hospital_id])
+  @@index([user_id])
+  @@index([payment_id])
+}
+
+model ReservationItem {
+  id             Int     @id @default(autoincrement())
+  reservation_id Int?
+  department_id  Int?
+  total          BigInt?
+
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+  department  Department?  @relation(fields: [department_id], references: [id])
+  reservation Reservation? @relation(fields: [reservation_id], references: [id])
+
+  @@index([department_id])
+  @@index([reservation_id])
+}
+
+model Payment {
+  id    Int          @id @default(autoincrement())
+  total BigInt?
+  type  PaymentType? @default(CARD)
+
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @updatedAt
+  reservations Reservation[]
+}
+
+enum UserRole {
+  PATIENT
+  ADMIN
+  DOCTOR
+}
+
+enum UserGender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum PaymentType {
+  CARD
+}
