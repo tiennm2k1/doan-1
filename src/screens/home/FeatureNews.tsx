@@ -25,20 +25,20 @@ const news = [
     title: "ỨNG DỤNG BOOKING CARE ĐÃ CÓ MẶT TẠI BỆNH VIỆN XANHPON",
     description: "23/05/2023, 08:40 - NGUYEN QUAN",
     href: "/",
-    image: "/assets/images/news/4.JPG",
+    image: "/assets/images/news/4.jpg",
   },
   {
     title:
       "TIÊM VACXIN TRƯỚC KHI SINH: NHỮNG MŨI TIÊM NÀO CẦN THIẾT CHO PHỤ NỮ",
     description: "6/3/2023, 12:07 - NGUYEN TIEN",
     href: "/",
-    image: "/assets/images/news/5.JPG",
+    image: "/assets/images/news/5.jpg",
   },
   {
     title: "CHƯƠNG TRÌNH PHẪU THUẬT TỪ THIỆN “THẮP SÁNG NỤ CƯỜI TRẺ THƠ”",
     description: "21/5/2023, 9:24 - NGUYEN CAM",
     href: "/",
-    image: "/assets/images/news/6.JPG",
+    image: "/assets/images/news/6.jpg",
   },
 ];
 
