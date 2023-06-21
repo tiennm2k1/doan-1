@@ -11,17 +11,17 @@ const IntroducePage = ({}) => {
         />
       </div>
       <div className="absolute top-0 flex flex-col w-full items-center tracking-wide">
-        <div className="text-4xl text-center mt-16 mb-16 text-white font-medium border-b-4 border-green-400">
+        <div className="text-4xl text-center mt-16 mb-16 pb-[5px] text-white font-medium border-b-2 border-blue-200">
           Giới thiệu
         </div>
         <div className="max-w-[1100px] bg-white p-8 rounded-lg border border-gray-300">
           <p>
             Chào mừng bạn đến với{" "}
-            <b>Phần mềm Đăng ký khám bệnh theo hẹn tại Medpro</b>. Phần mềm này
-            giúp người bệnh và thân nhân người bệnh có thể thực hiện trực tuyến
-            quá trình đăng ký khám bệnh tại bệnh viện ở mọi lúc mọi nơi mà không
-            cần phải đến trực tiếp bệnh viện, bao gồm các tiện ích trực tuyến
-            sau đây:
+            <b>Phần mềm Đăng ký khám bệnh theo hẹn tại Booking Care</b>. Phần
+            mềm này giúp người bệnh và thân nhân người bệnh có thể thực hiện
+            trực tuyến quá trình đăng ký khám bệnh tại bệnh viện ở mọi lúc mọi
+            nơi mà không cần phải đến trực tiếp bệnh viện, bao gồm các tiện ích
+            trực tuyến sau đây:
           </p>
           <br />
           <ul className="ml-10">

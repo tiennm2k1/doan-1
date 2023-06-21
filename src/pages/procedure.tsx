@@ -11,7 +11,7 @@ const ProcedurePage = ({}) => {
         />
       </div>
       <div className="absolute top-0 flex flex-col w-full items-center tracking-wide">
-        <p className="text-4xl text-center mt-28 mb-16 text-white font-medium border-b-4 border-green-400">
+        <p className="text-4xl text-center mt-28 mb-16 pb-[5px] text-white font-medium border-b-2 border-blue-200">
           QUY TRÌNH ĐĂNG KÝ KHÁM BỆNH
         </p>
       </div>
@@ -26,9 +26,7 @@ const ProcedurePage = ({}) => {
               ĐẶT LỊCH KHÁM
             </div>
             <ul className="pb-10 border-b-2 pl-8">
-              <li className="mt-1">
-                Đăng nhập phần mềm trên web hoặc ứng dụng di động.
-              </li>
+              <li className="mt-1">Đăng nhập phần mềm trên web.</li>
               <li className="mt-1">
                 Chọn hình thức đặt khám: Theo ngày hoặc theo bác sĩ.
               </li>

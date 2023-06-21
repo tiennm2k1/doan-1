@@ -4,46 +4,41 @@ interface FeatureNewsProps {}
 
 const news = [
   {
-    title:
-      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG BOOKING CARE TẠI PHÒNG KHÁM DOCTOR CHECK",
-    description: "27/04/2023, 10:11 - Trương Hoàng Nhân",
+    title: "TIẾT KIỆM ĐƯỢC KHỐI TIỀN VỚI DỊCH VỤ TƯ VẤN KHÁM BỆNH TỪ XA ",
+    description: "14/06/2023, 05:23pm - Thái Bình",
     href: "/",
-    image: "/assets/images/news/1.webp",
+    image: "/assets/images/news/1.jpg",
   },
   {
-    title:
-      "BỆNH VIỆN NHI ĐỒNG 1 THÔNG BÁO LỊCH NGHỈ LỄ GIỖ TỔ HÙNG VƯƠNG, 30/04 & 01/05/2023",
+    title: "ĐIỀU DƯỠNG TẠI NHÀ - CHĂM SÓC SỨC KHỎE TẬN GỐC",
     description: "26/04/2023, 09:17 - NGUYEN CAM",
     href: "/",
-    image: "/assets/images/news/2.webp",
+    image: "/assets/images/news/2.jpg",
+  },
+  {
+    title: "BẢNG CÂN NẶNG THAI NHI QUA CÁC CHU KỲ",
+    description: "20/06/2023, 09:24 - Trần Thị Dung",
+    href: "/",
+    image: "/assets/images/news/3.jpg",
+  },
+  {
+    title: "ỨNG DỤNG MEDPRO ĐÃ CÓ MẶT TẠI BỆNH VIỆN XANHPON",
+    description: "23/05/2023, 08:40 - NGUYEN QUAN",
+    href: "/",
+    image: "/assets/images/news/4.JPG",
   },
   {
     title:
-      "BỆNH VIỆN MẮT THÀNH PHỐ HỒ CHÍ MINH THÔNG BÁO LỊCH NGHỈ LỄ GIỖ TỔ HÙNG VƯƠNG, 30/04 & 01/05/2023",
-    description: "26/04/2023, 09:24 - NGUYEN CAM",
+      "TIÊM VACXIN TRƯỚC KHI SINH: NHỮNG MŨI TIÊM NÀO CẦN THIẾT CHO PHỤ NỮ",
+    description: "6/3/2023, 12:07 - NGUYEN TIEN",
     href: "/",
-    image: "/assets/images/news/3.webp",
+    image: "/assets/images/news/5.JPG",
   },
   {
-    title:
-      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG BOOKING CARE TẠI PHÒNG KHÁM DOCTOR CHECK",
-    description: "26/04/2023, 09:40 - NGUYEN CAM",
+    title: "CHƯƠNG TRÌNH PHẪU THUẬT TỪ THIỆN “THẮP SÁNG NỤ CƯỜI TRẺ THƠ”",
+    description: "21/5/2023, 9:24 - NGUYEN CAM",
     href: "/",
-    image: "/assets/images/news/4.webp",
-  },
-  {
-    title:
-      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG BOOKING CARE TẠI PHÒNG KHÁM DOCTOR CHECK",
-    description: "26/04/2023, 09:40 - NGUYEN CAM",
-    href: "/",
-    image: "/assets/images/news/4.webp",
-  },
-  {
-    title:
-      "ƯU ĐÃI 30/4 - 1/5 | MIỄN PHÍ KHÁM TẦM SOÁT TIÊU HOÁ CHO KHÁCH HÀNG BOOKING CARE TẠI PHÒNG KHÁM DOCTOR CHECK",
-    description: "26/04/2023, 09:40 - NGUYEN CAM",
-    href: "/",
-    image: "/assets/images/news/4.webp",
+    image: "/assets/images/news/6.JPG",
   },
 ];
 
