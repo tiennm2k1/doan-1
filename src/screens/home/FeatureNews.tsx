@@ -22,7 +22,7 @@ const news = [
     image: "/assets/images/news/3.jpg",
   },
   {
-    title: "ỨNG DỤNG MEDPRO ĐÃ CÓ MẶT TẠI BỆNH VIỆN XANHPON",
+    title: "ỨNG DỤNG BOOKING CARE ĐÃ CÓ MẶT TẠI BỆNH VIỆN XANHPON",
     description: "23/05/2023, 08:40 - NGUYEN QUAN",
     href: "/",
     image: "/assets/images/news/4.JPG",
