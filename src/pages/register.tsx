@@ -50,7 +50,7 @@ const RegisterPage = ({}) => {
 
   return (
     <div className="w-full">
-      <div className="grid grid-cols-2 min-h-screen">
+      <div className="grid grid-cols-1 min-h-screen">
         <div className="flex justify-center bg-[#F1EFF2]">
           <div className="w-full max-w-[450px] p-6">
             <div className="mb-8">
@@ -168,14 +168,14 @@ const RegisterPage = ({}) => {
             </div>
           </div>
         </div>
-        <div className="relative">
+        {/* <div className="relative">
           <div
             className="absolute inset-0 z-10 bg-cover bg-center"
             style={{
               backgroundImage: "url(/assets/images/login-background.jpg)",
             }}
           ></div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
