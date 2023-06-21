@@ -9,6 +9,7 @@ import { BiLogIn } from "react-icons/bi";
 import { useElementSize } from "usehooks-ts";
 import ProfileMenu from "./ProfileMenu";
 import { openProfileMenuAtom } from "@/store/ui";
+import clsx from "clsx";
 
 interface AppHeaderProps {}
 
@@ -27,19 +28,19 @@ const links = [
   },
   {
     label: "Hướng dẫn",
-    href: "/",
+    href: "/huong-dan",
   },
   {
     label: "Tin tức",
-    href: "/",
+    href: "/tin-tuc",
   },
   {
     label: "Thắc mắc",
-    href: "/",
+    href: "/thac-mac",
   },
   {
     label: "Liên hệ",
-    href: "/",
+    href: "/lien-he",
   },
 ];
 
@@ -123,7 +124,10 @@ const AppHeader: FC<AppHeaderProps> = ({}) => {
               {links.map((link, index) => (
                 <li key={index}>
                   <Link
-                    className="block p-4 transition hover:text-[#065eb3] hover:opacity-80"
+                    className={clsx(
+                      "block p-4 transition hover:text-[#065eb3] hover:opacity-80",
+                      { "text-[#065eb3]": router.pathname === link.href }
+                    )}
                     href={link.href}
                   >
                     {link.label}
